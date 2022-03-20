@@ -73,6 +73,16 @@ class Annapurna_Scraper:
             return None
         else:
             return self.response_data
+            
+    def read_data(self,read_page):
+        result = []
+        for page in range(1,read_page+1):
+            try:
+                with open(f'annapurna-scrape/{self.search_keyword}/{page}.json','r') as f:
+                    result += json.loads(f.read())
+            except Exception as error:
+                print(error)
+        return result
 
 scrape = Annapurna_Scraper(search_keyword='कांग्रेस',page_no=6,save_to_file=True)
 data = scrape.Scrape() 
