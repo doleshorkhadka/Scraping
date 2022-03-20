@@ -1,4 +1,3 @@
-from base64 import encode
 import json,os,requests
 
 '''saves file in a folder on the basis of page.'''
